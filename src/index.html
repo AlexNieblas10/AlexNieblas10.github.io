@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ee91340905.js" crossorigin="anonymous"></script>
     <title>Pokedex</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="main.js"></script>
@@ -17,51 +16,31 @@
         <form>
             <label for="busqueda" id="titulo-busqueda">Busque aqui su pokemon</label>
             <input type="text" id="busqueda" placeholder="pikachu">
-            <input type="submit" class="boton-enviar" value="Buscar">
+            <input type="button" class="boton-enviar" value="Buscar">
         </form>
     </header>
 
     <section id="carta-pokemon">
-        <div class="pokemon">
-            <div class="contenedor-imagen">
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
-                <div class="contenedor-type">
-                    <h1>Type:</h1>
-                    <h2 class="grass 1">Grass</h2>
-                    <h2 class="type2">Poison</h2>
-                </div>
-            </div>
-            
-            <div class="informacion-pokemon">
-                <div class="informacion">
-                    <h2>Name</h2>
-                    <h2 class="respuesta-api">bulbasaur</h2>
-                </div>
-                <div class="informacion">
-                    <h2>Vida</h2>
-                    <h2 class="respuesta-api">45</h2>
-                </div>
-                <div class="informacion">
-                    <h2>Ataque</h2>
-                    <h2 class="respuesta-api">49</h2>
-                </div>
-                <div class="informacion">
-                    <h2>Defensa</h2>
-                    <h2 class="respuesta-api">49</h2>
-                </div>
-                <div class="informacion">
-                    <h2>Velocidad</h2>
-                    <h2 class="respuesta-api">45</h2>
-                </div>
-            </div>
-        </div>
-        
     </section>
     
-    <footer id="ver-mas">
+    <section id="ver-mas">
         <button id="pagina-siguiente">
             Pagina siguiente
         </button>
+    </section>
+
+    <footer id="footer">
+        <div id="redes-sociales">
+            <h1>Contacto</h1>
+            <ul class="list">
+                <li class="items linea"></li>
+                <li class="items"><a target="_blank" href="https://github.com/AlexNieblas10"><i class="fa-brands fa-square-github"></i></a></li>
+                <li class="items"><a target="_blank" href="https://www.linkedin.com/in/alex-nieblas-moreno-a90818235/"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li class="items"><a target="_blank" href="https://twitter.com/alexnieblasm"><i class="fa-brands fa-square-twitter"></i></a></li>
+                <li class="items"><a target="_blank" href="mailto:elalexnieblas@gmail.com"><i class="fa-sharp fa-solid fa-envelope"></i></a></li>
+                <li class="items linea"></li>
+            </ul>
+        </div>
     </footer>
 
 </body>

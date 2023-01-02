@@ -1,40 +1,127 @@
 :root{
+    --xs: 10px;
+    --s: 16px;
+    --m: 22px;
+    --g: 32px;
+    --xg: 40px;
     --chico: 300;
-    --mediano: 700;
-    --grande: 900;
-    --normal: #A8A090;
-    --fighting:#A05038;
-    --flying: #98A8F0;
-    --poison:#B058A0;
-    --ground: #E9D6A4;
-    --rock: #B8A058; 
-    --bug: #A8B820;
-    --ghost: #6060B0;
-    --steel: #A8A8C0;
-    --fire: #F05030;
-    --water: #3899F8;
-    --grass: #78C850;
-    --electric: #F8D030	;
-    --psychic: #F870A0;
-    --ice: #58C8E0;
-    --dragon: #7860E0;
-    --dark: #7A5848;
-    --fairy: #E79FE7;
-    --unknown: #A8A8C0;
-    --shadow: #7A5848;
+    --mediano: 500;
+    --grande: 700;
+    --normal: rgba(168, 160, 144, 1);
+    --fighting:rgba(160, 80, 56, 1);
+    --flying: rgba(152, 168, 240, 1);
+    --poison:rgba(176, 88, 160, 1);
+    --ground: rgba(233, 214, 164, 1);
+    --rock: rgba(184, 160, 88, 1); 
+    --bug: rgba(168, 184, 32, 1);
+    --ghost: rgba(96, 96, 176, 1);
+    --steel: rgba(168, 168, 192, 1);
+    --fire: rgba(240, 80, 48, 1);
+    --water: rgba(56, 153, 248, 1);
+    --grass: rgba(120,200,80,1);
+    --electric: rgba(248, 208, 48, 1);
+    --psychic: rgba(248, 112, 160, 1);
+    --ice: rgba(88, 200, 224, 1);
+    --dragon: rgba(120, 96, 224, 1);
+    --dark: rgba(122, 88, 72, 1);
+    --fairy: rgba(231, 159, 231, 1);
+    --unknown: rgba(168, 168, 192, 1);
+    --shadow: rgba(122, 88, 72, 1);
+    --white: rgba(255,255,255,1);
 }
-.grass{
-   background-color: #78C850; 
-   text-align: center;
-   
+
+/* Backgrounds */
+#carta-pokemon .pokemon.normal{
+    background: var(--normal);
+    background: linear-gradient(0deg, var(--normal) 0%, var(--white) 100%);
 }
+#carta-pokemon .pokemon.fighting{
+    background: var(--fighting);
+    background: linear-gradient(0deg, var(--fighting) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.flying{
+    background: var(--flying);
+    background: linear-gradient(0deg, var(--flying) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.poison{
+    background: var(--poison);
+    background: linear-gradient(0deg, var(--poison) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.ground{
+    background: var(--ground);
+    background: linear-gradient(0deg, var(--ground) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.rock{
+    background: var(--rock);
+    background: linear-gradient(0deg, var(--rock) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.bug{
+    background: var(--bug);
+    background: linear-gradient(0deg, var(--bug) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.ghost{
+    background: var(--ghost);
+    background: linear-gradient(0deg, var(--ghost) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.steel{
+    background: var(--steel);
+    background: linear-gradient(0deg, var(--steel) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.fire{
+    background: var(--fire);
+    background: linear-gradient(0deg, var(--fire) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.water{
+    background: var(--water);
+    background: linear-gradient(0deg, var(--water) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.grass{
+    background: var(--grass);
+    background: linear-gradient(0deg, var(--grass) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.electric{
+    background: var(--electric);
+    background: linear-gradient(0deg, var(--electric) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.psychic{
+    background: var(--psychic);
+    background: linear-gradient(0deg, var(--psychic) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.ice{
+    background: var(--ice);
+    background: linear-gradient(0deg, var(--ice) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.dragon{
+    background: var(--dragon);
+    background: linear-gradient(0deg, var(--dragon) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.dark{
+    background: var(--dark);
+    background: linear-gradient(0deg, var(--dark) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.fairy{
+    background: var(--fairy);
+    background: linear-gradient(0deg, var(--fairy) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.unknown{
+    background: var(--unknown);
+    background: linear-gradient(0deg, var(--unknown) 0%, var(--white) 100%);
+}
+#carta-pokemon .pokemon.shadow{
+    background: var(--shadow);
+    background: linear-gradient(0deg, var(--shadow) 0%, var(--white) 100%);
+}
+
+/* Ajustes globales */
 body{
     margin: 0;
     padding: 0;
     background-color: #fefefe;
-    font-family: "Lato";
+    font-family: "ArcadeClassic";
 }
 
+
+/* Header y Busqueda */
 #bienvenida{
     display: flex;
     flex-direction: column;
@@ -48,13 +135,12 @@ body{
 #titulo-busqueda{
     font-weight: var(--mediano);
 }
-
 #bienvenida h1{
     text-align: center;
     margin-bottom:  18px;
     font-weight: var(--grande);
+    font-size: var(--xg);
 }
-
 #bienvenida form{
     text-align: center;
     justify-content: center;
@@ -64,15 +150,17 @@ body{
     width: 30%;
     gap: 8px
 }
-
+#bienvenida form label{
+    font-size: var(--m);
+}
 #bienvenida form #busqueda{
     width: 50%;
     outline: none;
     border: 1px solid gray;
     border-radius: 2px;
+    font-family: 'ArcadeClassic';
+    font-size: var(--s);
 }
-
-
 #bienvenida form .boton-enviar{
     width: 100px;
     height: 30px;
@@ -81,9 +169,10 @@ body{
     cursor: pointer;
     font-weight: var(--chico);
     color: buttontext;
+    font-family: "ArcadeClassic";
 }
 
-
+/* Todas las cartas pokemon */
 #carta-pokemon{
     margin-top: 50px;
     width: 100%;
@@ -93,59 +182,135 @@ body{
     justify-content: center;
     margin-bottom: 50px;
 }
-
 #carta-pokemon .pokemon{
     width: 200px;
     height: 300px;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
-    padding: 40px;
+    border: 10px solid black;
+    border-radius: 10px;
+    padding: 30px;
     background-color: white;
+    border-radius: 30px;
 }
-
+#carta-pokemon .pokemon .id-pokemon{
+    margin: 0;
+    text-align: center;
+}
+#carta-pokemon .pokemon .name{
+    text-align: center;
+    margin: 0;
+    font-size: var(--g);
+}
+#carta-pokemon .pokemon .contenedor-imagen .contenedor-type h1{
+    font-size: var(--m);
+    margin-bottom: 5px;
+}
 #carta-pokemon .pokemon .contenedor-imagen{
     width: 100%;
     display: flex;
+    
 }
-
 #carta-pokemon .pokemon .contenedor-imagen img{
     width: 100%;
 }
+#carta-pokemon .pokemon .contenedor-imagen .contenedor-type .pokemon-shiny{
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    width: auto;
+    height: 20px;
+    bottom: 20px;
+    left: 0;
+    right: 0px;
+    font-family: 'ArcadeClassic';
+}
+#carta-pokemon .pokemon .contenedor-imagen .contenedor-type{
+    position: relative;
+}
+
 #carta-pokemon .pokemon .contenedor-imagen .contenedor-type h2{
     margin: 0;
     font-weight: var(--chico);
-    font-size: 18px;
+    font-size: var(--s);
 }
-
 #carta-pokemon .pokemon .informacion-pokemon{
     width: 100%;
     height: 30px;
 }
-
-#carta-pokemon .pokemon .informacion{
+#carta-pokemon .pokemon .informacion-pokemon .informacion{
     display: flex;
     justify-content: space-between;
 }
-
-#carta-pokemon .pokemon .informacion .respuesta-api{
-    font-weight: var(--mediano);
+#carta-pokemon .pokemon .informacion-pokemon .informacion h2{
+    margin: 0;
+    font-size: var(--m);
+    margin: 5px 0;
+}
+#carta-pokemon .pokemon .informacion-pokemon .informacion .respuesta-api{
+    font-size: var(--m);
 }
 
-#carta-pokemon .pokemon .informacion-pokemon h2{
-    font-size: 13px;
-}
-
-
+/* Boton para ver mas */
 #ver-mas{
     display: flex;
     justify-content: center;
 }
-
 #pagina-siguiente{
     width: 300px;
     height: 40px;
     border-radius: 15px;
     border: none;
     color: buttontext;
+    font-family: 'ArcadeClassic';
+    font-size: var(--m);
+    margin: 40px 0;
+}
+
+/* Footer */
+
+#footer{
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    display: flex;
+    color: var(--white);
+    background-color: #000908;
+}
+
+#footer #redes-sociales{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#footer #redes-sociales h1{
+    text-align: center;
+    padding-right: 30px;
+    font-size: var(--m);
+    font-weight: var(--chico);
+}
+#footer #redes-sociales .list{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    padding: 0;
+    justify-content: center;
+}
+#footer #redes-sociales .list a{
+    color: var(--white);
+    text-decoration: none;
+    font-size: var(--g);
+    height: 40px;
+}
+
+.list .items{
+    list-style: none;
+    font-size: 30px;
+}
+.list .items.linea{
+    text-align: center;
+    border-bottom: 1px solid white;
+    width: 500px;
 }
