@@ -1,4 +1,4 @@
-/* let API = 'https://pokeapi.co/api/v2'
+let API = 'https://pokeapi.co/api/v2'
 let APICambiante = "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20"
 let n = 20
 const containerCard = document.getElementById('carta-pokemon') 
@@ -19,6 +19,17 @@ async function getPokemonImg(urlApi, indice){
     const detailsPokemon = await fetchData(urlPokemon)
     const imagenPokemon = detailsPokemon.sprites.front_default
     return imagenPokemon;
+}
+async function getPokemonType(urlApi, indice){
+    const urlPokemon = await getPokemonUrl(urlApi, indice)
+    const detailsPokemon = await fetchData(urlPokemon)
+    const typesPokemon = detailsPokemon.types
+    if (typesPokemon.length > 1) {
+        for (let i = 0; i < typesPokemon.length; i++) {
+            return typesPokemon[i].type.name 
+        }
+    }
+    else return typesPokemon[0].type.name;
 }
 async function getPokemonName(urlApi, indice){
     const urlPokemon = await getPokemonUrl(urlApi, indice)
@@ -63,6 +74,7 @@ async function getPokemonVelocidad(urlApi, indice){
         const atk = await getPokemonATK(API, i)
         const defensa = await getPokemonDefensa(API, i)
         const velocidad = await getPokemonVelocidad(API, i)
+        const type  = await getPokemonType(API. i)
 
         const containerPrincipal = document.createElement('div')
         containerPrincipal.classList.add('pokemon')
@@ -70,6 +82,8 @@ async function getPokemonVelocidad(urlApi, indice){
         const contenedorImg = document.createElement('div')
         contenedorImg.classList.add('contenedor-imagen')
 
+        const typesPokemon = document.createElement('h3')
+        typesPokemon.textContent = 'Type'
         const imagenPokemon = document.createElement('img')
         imagenPokemon.setAttribute('src', imagen)
 
@@ -122,7 +136,7 @@ async function getPokemonVelocidad(urlApi, indice){
         respuesta5.classList.add('respuesta-api')
         respuesta5.textContent = velocidad
 
-        contenedorImg.append(imagenPokemon)
+        contenedorImg.append(imagenPokemon, typesPokemon)
         informacion.append(caracteristica, respuesta)
         informacion2.append(caracteristica2, respuesta2)
         informacion3.append(caracteristica3, respuesta3)
@@ -131,7 +145,6 @@ async function getPokemonVelocidad(urlApi, indice){
         informacionPokemon.append(informacion, informacion2, informacion3, informacion4, informacion5)
         containerPrincipal.append(contenedorImg, informacionPokemon)
         containerCard.append(containerPrincipal)
-        console.log(containerPrincipal.innerHTML);
     } 
     }
     catch(err){
@@ -159,6 +172,9 @@ try{
         const contenedorImg = document.createElement('div')
         contenedorImg.classList.add('contenedor-imagen')
 
+        const typesPokemon = document.createElement('h3')
+        typesPokemon.textContent = 'Type'
+
         const imagenPokemon = document.createElement('img')
         imagenPokemon.setAttribute('src', imagen)
 
@@ -211,7 +227,7 @@ try{
         respuesta5.classList.add('respuesta-api')
         respuesta5.textContent = velocidad
 
-        contenedorImg.append(imagenPokemon)
+        contenedorImg.append(imagenPokemon, typesPokemon)
         informacion.append(caracteristica, respuesta)
         informacion2.append(caracteristica2, respuesta2)
         informacion3.append(caracteristica3, respuesta3)
@@ -229,8 +245,3 @@ try{
         APICambiante = `https://pokeapi.co/api/v2/pokemon/?offset=${n}&limit=20`
     }
 })
-
- */
-
-
-
