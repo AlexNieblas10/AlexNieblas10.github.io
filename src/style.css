@@ -489,3 +489,9 @@ body{
     border-bottom: 1px solid white;
     width: 500px;
 }
+
+@media (max-width: 630px) {
+    .icon-house{
+        top: 80px;
+    }
+}
