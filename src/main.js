@@ -2,7 +2,9 @@ let API = 'https://pokeapi.co/api/v2'
 let APICambiante = "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20"
 let n = 20
 const containerCard = document.getElementById('carta-pokemon') 
+const card = document.getElementById('carta') 
 const boton = document.querySelector('#pagina-siguiente') 
+const iconHouse = document.querySelector('.icon-house') 
 
 const inputBuscarPokemon = document.getElementById('busqueda')
 const botonBuscarPokemon = document.querySelector('.boton-enviar')
@@ -320,10 +322,143 @@ try{
     }
 })
 
-function saludar() {
-    console.log('ola');
+async function pokemon(event) {
+    try{
+        event.preventDefault();
+        const pokemonName = inputBuscarPokemon.value.toLowerCase()
+        const pokemon = await fetchData(`${API}/pokemon/${pokemonName}`)
+        const pokemonImg = pokemon.sprites.front_default
+        const pokemonImgShiny = pokemon.sprites.front_shiny
+        const idPokemon = pokemon.id
+        const namePokemon = pokemon.name
+        const hp = pokemon.stats[0].base_stat
+        const atk = pokemon.stats[1].base_stat
+        const defensaPokemon = pokemon.stats[2].base_stat
+        const velocidadPokemon = pokemon.stats[5].base_stat
+        const typesPokemon = pokemon.types
+        let types = []
+        for (let i = 0; i < typesPokemon.length; i++) {
+            const type = typesPokemon[i].type.name
+            types.push(type)
+        }
+        card.classList.remove('none')
+        containerCard.classList.add('none')
+        boton.classList.add('none')
+
+        const pokemonAndType = document.createElement('div')
+        pokemonAndType.classList.add('pokemon')
+        pokemonAndType.classList.add(types[0])
+        
+        const id = document.createElement('h3')
+        id.classList.add('id-pokemon')
+        const idNumToStr = idPokemon.toString()
+        const idMod = `#${idNumToStr.padStart(3, '0')}`
+        id.textContent = idMod
+
+        const name = document.createElement('h2')
+        name.classList.add('name')
+        name.textContent = namePokemon.toUpperCase()
+        
+        const imgContainer = document.createElement('div')
+        imgContainer.classList.add('contenedor-imagen')
+        
+        const img = document.createElement('img')
+        img.classList.add('normal')
+        img.setAttribute('src', pokemonImg)
+        
+        const typeContainer = document.createElement('div')
+        typeContainer.classList.add('contenedor-type')
+        
+        const type = document.createElement('h1') 
+        type.textContent = 'Type:'
+        const type1 = document.createElement('h2')
+        type1.textContent = types[0]
+        const type2 = document.createElement('h2')
+        type2.textContent = types[1]
+
+        const shiny = document.createElement('button')
+        shiny.classList.add('pokemon-shiny')
+        shiny.textContent = 'Shiny'
+
+        const pokemonInformation = document.createElement('div')
+        pokemonInformation.classList.add('informacion-pokemon')
+        
+        const information1 = document.createElement('div') 
+        information1.classList.add('informacion')
+        const vida = document.createElement('h2')
+        vida.textContent = 'Vida'
+        const respuesta1 = document.createElement('h2')
+        respuesta1.classList.add("respuesta-api")
+        respuesta1.textContent = hp
+        
+        const information2 = document.createElement('div')
+        information2.classList.add('informacion')
+        const ataque = document.createElement('h2')
+        ataque.textContent = 'Ataque'
+        const respuesta2 = document.createElement('h2')
+        respuesta2.classList.add("respuesta-api")
+        respuesta2.textContent = atk
+        
+        const information3 = document.createElement('div')
+        information3.classList.add('informacion')
+        const defensa = document.createElement('h2')
+        defensa.textContent = 'Defensa'
+        const respuesta3 = document.createElement('h2')
+        respuesta3.classList.add("respuesta-api")
+        respuesta3.textContent = defensaPokemon
+        
+        const information4 = document.createElement('div')
+        information4.classList.add('informacion')
+        const velocidad = document.createElement('h2')
+        velocidad.textContent = 'Velocidad'
+        const respuesta4 = document.createElement('h2')
+        respuesta4.classList.add("respuesta-api")
+        respuesta4.textContent = velocidadPokemon
+        
+        typeContainer.append(type, type1, type2, shiny)
+        imgContainer.append(img, typeContainer)
+        information1.append(vida, respuesta1)
+        information2.append(ataque, respuesta2)
+        information3.append(defensa, respuesta3)
+        information4.append(velocidad, respuesta4)
+        pokemonInformation.append(information1, information2, information3, information4)
+        pokemonAndType.append(id, name, imgContainer, pokemonInformation)
+        card.append(pokemonAndType)
+
+        function cambiarImagen() {
+            if (img.classList[0] == 'normal') {
+                img.setAttribute('src', pokemonImgShiny)
+                buttonShiny.textContent = 'Normal'
+                img.classList.toggle('normal')
+            }
+            else{
+                img.setAttribute('src', pokemonImg)
+                buttonShiny.textContent = 'Shiny'
+                img.classList.toggle('normal')
+            }
+            
+        }
+        const buttonShiny = shiny
+        buttonShiny.addEventListener('click', cambiarImagen)
+        inputBuscarPokemon.value = ''
+
+        function recuperar() {
+            containerCard.classList.remove('none')
+            pokemonAndType.remove()
+            boton.classList.remove('none')
+            inputBuscarPokemon.value = ''
+        }
+
+        iconHouse.addEventListener('click', recuperar)
+
+    }catch(err){
+        alert('Ese Pokemon no se encuentra')
+    }
 }
-botonBuscarPokemon.addEventListener('click', saludar)
+botonBuscarPokemon.addEventListener('click', pokemon)
+
+
+
 
 
 
