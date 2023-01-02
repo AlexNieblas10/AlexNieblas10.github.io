@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700;900&display=swap" rel="stylesheet">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <header id="bienvenida">
+        <h1>Bienvenidos a la Pokedex</h1>
+        <form>
+            <label for="busqueda" id="titulo-busqueda">Busque aqui su pokemon</label>
+            <input type="text" id="busqueda" placeholder="pikachu">
+            <input type="submit" class="boton-enviar" value="Buscar">
+        </form>
+    </header>
+
+    <section id="carta-pokemon">
+        <div class="pokemon">
+            <div class="contenedor-imagen">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
+                <h3>type</h3>
+            </div>
+            
+            <div class="informacion-pokemon">
+                <div class="informacion">
+                    <h2>Name</h2>
+                    <h2 class="respuesta-api">bulbasaur</h2>
+                </div>
+                <div class="informacion">
+                    <h2>Vida</h2>
+                    <h2 class="respuesta-api">45</h2>
+                </div>
+                <div class="informacion">
+                    <h2>Ataque</h2>
+                    <h2 class="respuesta-api">49</h2>
+                </div>
+                <div class="informacion">
+                    <h2>Defensa</h2>
+                    <h2 class="respuesta-api">49</h2>
+                </div>
+                <div class="informacion">
+                    <h2>Velocidad</h2>
+                    <h2 class="respuesta-api">45</h2>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    
+    <footer id="ver-mas">
+        <button id="pagina-siguiente">
+            Pagina siguiente
+        </button>
+    </footer>
+
+</body>
+</html>
